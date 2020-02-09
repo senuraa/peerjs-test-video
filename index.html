@@ -28,12 +28,12 @@
 <script>
 
 var video = document.querySelector("#videoElement");
-var peer = new Peer('a124',{host: '35.192.34.51', port: 9000, path: '/'}); 
+var peer = new Peer('a124',{host: 'localhost', port: 9000, path: '/'}); 
 if (navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(function (stream) {
       
-      var call = peer.call('another-peers-id', stream);
+      var call = peer.call('a125', stream);
         call.on('stream', function(remoteStream) {
             video.srcObject = remoteStream;
   });
